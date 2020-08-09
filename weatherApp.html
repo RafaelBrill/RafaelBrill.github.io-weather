@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Weather</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<style>
+    .pointer {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+    <div class="container-fluid px-0 overflow-hidden">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center bg-dark py-3 text-white">Weather Dashboard</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="px-3">
+                    <form id="city-search-form">
+                        <h5>Search for a city:</h5>
+                        <label class="sr-only" for="city">City</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="city" placeholder="Enter City Name">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text p-0">
+                                    <button id="search-button" type="submit" class="btn btn-primary">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="city-history-container" class="mt-3">
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border py-4 pl-3 mr-3">
+                            <h4>
+                                Toronto (8/4/2020)
+                                <i class="fa fa-sun-o text-danger" aria-hidden="true"></i>
+                            </h4>
+                            <div class="mt-4">
+                                Temperature: 66.63 °F
+                            </div>
+                            <div class="mt-3">
+                                Humidity: 88%
+                            </div>
+                            <div class="mt-3">
+                                Wind Speed: 11.4 MPH
+                            </div>
+                            <div class="mt-3">
+                                UV Index:
+                                <span class="py-1 px-2 bg-danger text-white">7.52</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="py-3">5-Day Forecast</h5>
+                    </div>
+                </div>
+                <div class=" row ">
+                    <div class="col col-lg-2 ">
+                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
+                            <h5 class="text-center">8/5/2020</h5>
+                            <div class="text-center mt-3 ">
+                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
+                            </div>
+                            <div class="small mt-3 ">Temp: 69.3 °F</div>
+                            <div class="small mt-3 ">Humidity:</div>
+                            <div class="small ">49%</div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-2 ">
+                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
+                            <h5 class="text-center">8/5/2020</h5>
+                            <div class="text-center mt-3 ">
+                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
+                            </div>
+                            <div class="small mt-3 ">Temp: 69.3 °F</div>
+                            <div class="small mt-3 ">Humidity:</div>
+                            <div class="small ">49%</div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-2 ">
+                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
+                            <h5 class="text-center">8/5/2020</h5>
+                            <div class="text-center mt-3 ">
+                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
+                            </div>
+                            <div class="small mt-3 ">Temp: 69.3 °F</div>
+                            <div class="small mt-3 ">Humidity:</div>
+                            <div class="small ">49%</div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-2 ">
+                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
+                            <h5 class="text-center">8/5/2020</h5>
+                            <div class="text-center mt-3 ">
+                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
+                            </div>
+                            <div class="small mt-3 ">Temp: 69.3 °F</div>
+                            <div class="small mt-3 ">Humidity:</div>
+                            <div class="small ">49%</div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-2 ">
+                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
+                            <h5 class="text-center">8/5/2020</h5>
+                            <div class="text-center mt-3 ">
+                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
+                            </div>
+                            <div class="small mt-3 ">Temp: 69.3 °F</div>
+                            <div class="small mt-3 ">Humidity:</div>
+                            <div class="small ">49%</div>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-block col-lg-2 ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js "></script>
+
+    <script>
+        let history = [];
+        $('#city-search-form').submit(function(event) {
+            event.preventDefault();
+
+            const cityInput = $('#city').val();
+            //validation of cityInput
+            if (!cityInput || cityInput.length == 0) {
+                console.log('input was empty');
+                return;
+            }
+            getCityData(cityInput);
+        });
+
+        $(document).on('click', '.city-history', function() {
+            let city = $(this).data('city');
+            getCityData(city);
+        });
+
+        function getCityData(city) {
+            //AJAX request here
+            console.log('make ajax request using ' + city + ' here');
+
+            if (history.indexOf(city) === -1) {
+                history.push(city);
+                populateHistory();
+            }
+
+            $('#city').val('');
+        }
+
+        function populateHistory() {
+            const historyHtml = history.map((city) => {
+                return '<div class="pointer city-history p-3 border" data-city="' + city + '">' + city + '</div>';
+            });
+            $('#city-history-container').html(historyHtml);
+        }
+    </script>
+</body>
+
+</html>
