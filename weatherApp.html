@@ -49,26 +49,26 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div id="main-weather-data-section" class="col-8">
                 <div class="row">
                     <div class="col-12">
                         <div class="border py-4 pl-3 mr-3">
                             <h4>
-                                Toronto (8/4/2020)
+                                <span id="city-name"></span> (<span id="current-date"></span>)
                                 <i class="fa fa-sun-o text-danger" aria-hidden="true"></i>
                             </h4>
                             <div class="mt-4">
-                                Temperature: 66.63 °F
+                                Temperature: <span id="current-temp"></span> °F
                             </div>
                             <div class="mt-3">
-                                Humidity: 88%
+                                Humidity: <span id="current-humidity"></span>%
                             </div>
                             <div class="mt-3">
-                                Wind Speed: 11.4 MPH
+                                Wind Speed: <span id="current-wind-speed"></span> MPH
                             </div>
                             <div class="mt-3">
                                 UV Index:
-                                <span class="py-1 px-2 bg-danger text-white">7.52</span>
+                                <span id="current-uv-index" class="py-1 px-2 bg-danger text-white"></span>
                             </div>
                         </div>
                     </div>
@@ -78,64 +78,7 @@
                         <h5 class="py-3">5-Day Forecast</h5>
                     </div>
                 </div>
-                <div class=" row ">
-                    <div class="col col-lg-2 ">
-                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
-                            <h5 class="text-center">8/5/2020</h5>
-                            <div class="text-center mt-3 ">
-                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
-                            </div>
-                            <div class="small mt-3 ">Temp: 69.3 °F</div>
-                            <div class="small mt-3 ">Humidity:</div>
-                            <div class="small ">49%</div>
-                        </div>
-                    </div>
-                    <div class="col col-lg-2 ">
-                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
-                            <h5 class="text-center">8/5/2020</h5>
-                            <div class="text-center mt-3 ">
-                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
-                            </div>
-                            <div class="small mt-3 ">Temp: 69.3 °F</div>
-                            <div class="small mt-3 ">Humidity:</div>
-                            <div class="small ">49%</div>
-                        </div>
-                    </div>
-                    <div class="col col-lg-2 ">
-                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
-                            <h5 class="text-center">8/5/2020</h5>
-                            <div class="text-center mt-3 ">
-                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
-                            </div>
-                            <div class="small mt-3 ">Temp: 69.3 °F</div>
-                            <div class="small mt-3 ">Humidity:</div>
-                            <div class="small ">49%</div>
-                        </div>
-                    </div>
-                    <div class="col col-lg-2 ">
-                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
-                            <h5 class="text-center">8/5/2020</h5>
-                            <div class="text-center mt-3 ">
-                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
-                            </div>
-                            <div class="small mt-3 ">Temp: 69.3 °F</div>
-                            <div class="small mt-3 ">Humidity:</div>
-                            <div class="small ">49%</div>
-                        </div>
-                    </div>
-                    <div class="col col-lg-2 ">
-                        <div class="border border-primary bg-primary text-white p-1 pb-3 ">
-                            <h5 class="text-center">8/5/2020</h5>
-                            <div class="text-center mt-3 ">
-                                <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
-                            </div>
-                            <div class="small mt-3 ">Temp: 69.3 °F</div>
-                            <div class="small mt-3 ">Humidity:</div>
-                            <div class="small ">49%</div>
-                        </div>
-                    </div>
-                    <div class="d-none d-lg-block col-lg-2 ">
-                    </div>
+                <div id="forecast-data-section" class=" row ">
                 </div>
             </div>
         </div>
@@ -143,13 +86,37 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 
     <script>
+        //global variable space
         let history = [];
+        let historyData = {};
+        let currentWeather = {};
+        let forecast = [];
+        let currentCity = 'Chicago';
+        let apiUrl = 'https://api.openweathermap.org/data/2.5';
+        let apiKey = '47dbf0f96317667a9477ec3afa03c06e';
+
+        checkWeatherData();
+
+        getCityData(currentCity);
+
+        alert('Currenty we are showing weather data for ' + currentCity + ' by default, but you can search weather data for your own city using the left hand side search menu.');
+
+
+        function checkWeatherData() {
+            if (Object.keys(currentWeather).length === 0 && currentWeather.constructor === Object) {
+                $('#main-weather-data-section').hide();
+                return;
+            }
+            $('#main-weather-data-section').show();
+        }
+
         $('#city-search-form').submit(function(event) {
             event.preventDefault();
 
@@ -164,19 +131,164 @@
 
         $(document).on('click', '.city-history', function() {
             let city = $(this).data('city');
-            getCityData(city);
+            getHistoryData(city);
         });
 
         function getCityData(city) {
             //AJAX request here
-            console.log('make ajax request using ' + city + ' here');
 
-            if (history.indexOf(city) === -1) {
-                history.push(city);
-                populateHistory();
-            }
+            //let queryURL = `api.openweathermap.org/data/2.5/weather?q=${city}&appid={your api key}`;
+            let currentWeatherURL = apiUrl + '/weather?q=' + city + '&appid=' + apiKey + '&units=imperial';
+            currentWeather = {};
+            $.ajax({
+                url: currentWeatherURL,
+                method: "GET"
+            }).then(function(response) {
+                currentWeather.temperature = 'N/A';
+                currentWeather.humidity = 'N/A';
+                currentWeather.windSpeed = 'N/A';
+                currentWeather.uvIndex = 'N/A';
+                currentWeather.cityName = city;
+                currentWeather.currentDate = moment().format('M/D/YYYY');
+                currentWeather.lat = 'N/A';
+                currentWeather.lon = 'N/A';
+
+                currentCity = city;
+
+                if (typeof response.main.temp != 'undefined') {
+                    currentWeather.temperature = response.main.temp;
+                }
+                if (typeof response.main.humidity != 'undefined') {
+                    currentWeather.humidity = response.main.humidity;
+                }
+                if (typeof response.wind.speed != 'undefined') {
+                    currentWeather.windSpeed = response.wind.speed;
+                }
+                if (typeof response.name != 'undefined') {
+                    currentWeather.cityName = response.name;
+                    currentCity = response.name;
+                }
+                if (typeof response.coord.lat != 'undefined') {
+                    currentWeather.lat = response.coord.lat;
+                }
+                if (typeof response.coord.lon != 'undefined') {
+                    currentWeather.lon = response.coord.lon;
+                }
+
+                fetchForecastData();
+
+                if (history.indexOf(currentCity) === -1) {
+                    history.push(currentCity);
+                    populateHistory();
+                }
+            });
 
             $('#city').val('');
+        }
+
+        function fetchForecastData() {
+            console.log('current weather 1 ', currentWeather);
+            console.log('test');
+            let forecastUrl = apiUrl + '/onecall?lat=' + currentWeather.lat + '&lon=' + currentWeather.lon + '&exclude=minutely,hourly&appid=' + apiKey + '&units=imperial';
+            $.ajax({
+                url: forecastUrl,
+                method: "GET"
+            }).then(function(response) {
+                console.log('current weather 2 ', currentWeather);
+                if (typeof response.current.uvi != 'undefined') {
+                    currentWeather.uvIndex = response.current.uvi;
+                }
+                populateCurrentWeather(currentWeather);
+
+                forecast = [];
+                if (typeof response.daily[1] != 'undefined') {
+                    forecast.push(response.daily[1]);
+                }
+                if (typeof response.daily[2] != 'undefined') {
+                    forecast.push(response.daily[2]);
+                }
+                if (typeof response.daily[3] != 'undefined') {
+                    forecast.push(response.daily[3]);
+                }
+                if (typeof response.daily[4] != 'undefined') {
+                    forecast.push(response.daily[4]);
+                }
+                if (typeof response.daily[5] != 'undefined') {
+                    forecast.push(response.daily[5]);
+                }
+
+                populateForecast(forecast);
+                populateHistoryData();
+                checkWeatherData();
+            });
+
+        }
+
+        function populateHistoryData() {
+            console.log('currentWeather is ', currentWeather);
+            //currentWeather
+            //forecast
+            //currentCity
+            historyData[currentCity] = {
+                'currentWeather': currentWeather,
+                'forecast': forecast
+            };
+        }
+
+        function getHistoryData(city) {
+            console.log('city is ', city);
+            currentWeather = {};
+            forecast = [];
+            let targetData = historyData[city];
+            console.log('target data is ', targetData);
+            populateCurrentWeather(targetData.currentWeather);
+            populateForecast(targetData.forecast);
+            checkWeatherData();
+        }
+
+        function populateCurrentWeather(cw) {
+            //display the data
+            $('#city-name').text(cw.cityName);
+            $('#current-date').text(cw.currentDate);
+            $('#current-temp').text(cw.temperature);
+            $('#current-humidity').text(cw.humidity);
+            $('#current-wind-speed').text(cw.windSpeed);
+            $('#current-uv-index').text(cw.uvIndex);
+            currentWeather = cw;
+        }
+
+        function populateForecast(f) {
+            forecast = f;
+            let forecastHtml = f.map((forecastData) => {
+                let forecastTemperature = 'N/A';
+                let forecastHumidity = 'N/A';
+                let forecastDate = 'N/A';
+
+                if (typeof forecastData.dt != 'undefined') {
+                    forecastDate = moment(forecastData.dt * 1000).format('M/D/YYYY');
+                }
+                if (typeof forecastData.temp.day != 'undefined') {
+                    forecastTemperature = forecastData.temp.day;
+                }
+                if (typeof forecastData.humidity != 'undefined') {
+                    forecastHumidity = forecastData.humidity;
+                }
+
+                return `<div class="col col-lg-2 ">
+                    <div class="border border-primary bg-primary text-white p-1 pb-3 ">
+                        <h5 class="text-center">${forecastDate}</h5>
+                        <div class="text-center mt-3 ">
+                            <i class="fa fa-sun-o text-danger " aria-hidden="true "></i>
+                        </div>
+                        <div class="small mt-3 ">Temp: ${forecastTemperature} °F</div>
+                        <div class="small mt-3 ">Humidity:</div>
+                        <div class="small ">${forecastHumidity}%</div>
+                    </div>
+                </div>`;
+            });
+
+            $('#forecast-data-section').html(forecastHtml);
+            $('#forecast-data-section').append('<div class="d-none d-lg-block col-lg-2 "></div>');
         }
 
         function populateHistory() {
